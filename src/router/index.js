@@ -51,7 +51,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: {title: 'Dashboard', icon: 'dashboard'}
+      meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
   //region讲师列表实现
@@ -61,26 +61,26 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/teacher/list',
     name: '讲师',
-    meta: {title: '讲师', icon: 'user'},
+    meta: { title: '讲师', icon: 'user' },
     children: [
       {
         path: 'list',
         name: 'TeacherList',
         component: () => import('@/views/teacher/TeacherList'),
-        meta: {title: '讲师列表', icon: 'table'}
+        meta: { title: '讲师列表', icon: 'table' }
       },
       {
         path: 'addteacher',
         name: 'AddTeacher',
         component: () => import('@/views/teacher/AddTeacher'),
-        meta: {title: '添加讲师', icon: 'tree'}
+        meta: { title: '添加讲师', icon: 'tree' }
       },
       //定义编辑路由
       {
         path: 'edit/:id',
         name: 'EditTeacher',
         component: () => import('@/views/teacher/AddTeacher'),
-        meta: {title: '修改讲师', icon: 'tree'},
+        meta: { title: '修改讲师', icon: 'tree' },
         hidden: true
       }
     ]
@@ -92,20 +92,20 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/subject/list',
     name: '课程分类',
-    meta: {title: '课程分类', icon: 'el-icon-s-help'},
+    meta: { title: '课程分类', icon: 'el-icon-s-help' },
     children: [
       {
         path: 'list',
         name: 'SubjectList',
         component: () => import('@/views/subject/SubjectList'),
-        meta: {title: '课程分类列表', icon: 'table'}
+        meta: { title: '课程分类列表', icon: 'table' }
       },
       {
         path: 'upload/subject',
         name: 'Upload',
         component: () => import('@/views/subject/Upload'),
-        meta: {title: '添加课程分类', icon: 'tree'}
-      },
+        meta: { title: '添加课程分类', icon: 'tree' }
+      }
     ]
   },
   //endregion
@@ -115,41 +115,72 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/course/list',
     name: '课程',
-    meta: {title: '课程', icon: 'form'},
+    meta: { title: '课程', icon: 'form' },
     children: [
       {
         path: 'list',
         name: 'CourseList',
         component: () => import('@/views/course/CourseList'),
-        meta: {title: '课程信息', icon: 'table'}
+        meta: { title: '课程信息', icon: 'table' }
       },
       {
         path: 'info',
         name: 'CourseInfo',
         component: () => import('@/views/course/CourseInfo'),
-        meta: {title: '添加课程信息', icon: 'tree'}
+        meta: { title: '添加课程信息', icon: 'tree' }
       },
       {
         path: 'info/:id',
         name: 'CourseInfoId',
         component: () => import('@/views/course/CourseInfo'),
-        meta: {title: '添加课程信息', icon: 'tree'}, hidden: true
+        meta: { title: '添加课程信息', icon: 'tree' }, hidden: true
 
       },
       {
         path: 'chapter/:id',
         name: 'CourseChapter',
         component: () => import('@/views/course/CourseChapter'),
-        meta: {title: '添加课程章节', icon: 'tree'},
+        meta: { title: '添加课程章节', icon: 'tree' },
         hidden: true
       },
       {
         path: 'publish/:id',
         name: 'CoursePublish',
         component: () => import('@/views/course/CoursePublish'),
-        meta: {title: '添加课程详情', icon: 'tree'},
+        meta: { title: '添加课程详情', icon: 'tree' },
         hidden: true
+      }
+    ]
+  },
+  //endregion
+  // regionbanner的路由
+  {
+    path: '/banner',
+    component: Layout,
+    redirect: '/banner/list',
+    name: '轮播图',
+    meta: { title: '轮播图', icon: 'form' },
+    children: [
+      {
+        path: 'list',
+        name: 'BannerList',
+        component: () => import('@/views/banner/BannerList'),
+        meta: { title: '轮播图信息', icon: 'table' }
       },
+      {
+        path: 'addbanner',
+        name: 'AddBanner',
+        component: () => import('@/views/banner/AddBanner'),
+        meta: { title: '添加轮播图', icon: 'tree' }
+      },
+      //定义编辑路由
+      {
+        path: 'edit/:id',
+        name: 'EditTeacher',
+        component: () => import('@/views/banner/AddBanner'),
+        meta: { title: '修改轮播图', icon: 'tree' },
+        hidden: true
+      }
     ]
   },
   //endregion
@@ -259,12 +290,12 @@ export const constantRoutes = [
   // },
   //endregion
   // 404 page must be placed at the end !!!
-  {path: '*', redirect: '/404', hidden: true}
+  { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
-  scrollBehavior: () => ({y: 0}),
+  scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })
 

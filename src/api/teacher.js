@@ -47,7 +47,7 @@ export default {
    */
   async getTeacherById(id) {
     return request({
-      url: `/eduservice/teacher//find/${id}`,
+      url: `/eduservice/teacher/find/${id}`,
       method: 'get'
     })
   },

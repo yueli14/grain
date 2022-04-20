@@ -5,10 +5,8 @@
  * 转换时间轴
  */
 export function getLocalTime(nS) {
-  return new Date(parseInt(nS)).toLocaleString().replace(/:\d{1,2}$/, ' ');
+  return new Date(parseInt(nS)).toLocaleString().replace(/:\d{1,2}$/, ' ')
 }
-
-
 
 /**
  * Parse the time to string
